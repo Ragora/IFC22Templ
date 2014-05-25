@@ -31,25 +31,11 @@ class CImmDevice
 	public:
       	_declspec(dllexport) static CImmDevice * CreateDevice(HINSTANCE__ *, HWND__ *) 
 	{ 
-		typedef void (*LPINITT2DLL)(void);
-		HINSTANCE hDLL = NULL;
-		LPINITT2DLL lpinitT2DLL = NULL;
-		hDLL = LoadLibrary(L"t2dll.dll"); // AfxLoadLibrary is probably better.
-
-		if (hDLL == NULL)
-			return 0; // The DLL doesn't exist
-		else
-			lpinitT2DLL = (LPINITT2DLL)GetProcAddress(hDLL, "_Z9initT2Dllv"); // Attempt to load our entry point
-
-		if (lpinitT2DLL == NULL)
-			return 0; // Unable to load entry point
-		else
-			lpinitT2DLL(); // The function was loaded, call TribesNext and move on to postTN Startup
-
+		// Insert Code Here
 		return 0;
-	  }
+	}
 
-	  _declspec(dllexport) int UsesWin32MouseServices(int) { return 4; }
+	_declspec(dllexport) int UsesWin32MouseServices(int) { return 4; }
 };
 
 class CImmProject 
